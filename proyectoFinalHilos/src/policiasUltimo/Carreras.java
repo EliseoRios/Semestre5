@@ -1,8 +1,10 @@
 package policiasUltimo;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
@@ -12,11 +14,9 @@ import java.util.TimerTask;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+//import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.ImageIcon;
-
-import policiasUltimo.Anima.Contador;
 
 
 //IMPLEMENTACION GRAFICA
@@ -61,6 +61,9 @@ public class Carreras extends JFrame
 			labels[n].setIcon(new ImageIcon(getClass().getResource(nombre[n]+".gif")));
 			paneles[n].add(labels[n]);//aderir label a panel
 			labels[n].setLocation(0,0);
+			
+			this.setResizable(false);
+			this.setBackground(Color.darkGray);
 		}
 		boton = new JButton("Comenzar carrera");//boton con texto
 		
@@ -75,9 +78,8 @@ public class Carreras extends JFrame
 				distanciaPolicia =1;
 				segundos =0;
 				
-				
-				poli = new policia(labels[0],ancho-80,nombre[0],0);
-				ratero = new ladron(labels[1],ancho-80,nombre[1],50);
+				poli = new policia(labels[0],ancho-85,nombre[0],0);
+				ratero = new ladron(labels[1],ancho-85,nombre[1],50);
 				
 				ratero.start();
 				poli.start();
@@ -142,7 +144,6 @@ public class Carreras extends JFrame
 						   x=limite;
 					   
 					   System.out.println(nombre+"\t\tavanza en segundo "+segundos);
-					   //label.setLocation(x,0);//horizotal, vertical
 					   int temporal = x;
 					   x+=ran.nextInt(20);//aleatorio 0 20
 					   distanciaPolicia = x;
@@ -163,7 +164,7 @@ public class Carreras extends JFrame
 						}else if(distanciaLadron>=limite && libre==true)
 						{
 							libre = false;
-							System.out.println(nombre+"FELICIDADES SERAS LIBRE");
+							System.out.println(nombre+"FELICIDADES ERES LIBRE");
 							//JOptionPane.showMessageDialog(null, "FELICIDADES SERAS LIBRE");
 							poli.stop();
 							ratero.stop();
@@ -212,7 +213,6 @@ public class Carreras extends JFrame
 						   x=limite;
 					   
 					   System.out.println(nombre+"\t\tavanza en segundo "+segundos);
-					   //label.setLocation(x,0);//horizotal, vertical
 					   int temporal = x;
 					   x+=ran.nextInt(20);//aleatorio 0 20
 					   distanciaLadron = x;
