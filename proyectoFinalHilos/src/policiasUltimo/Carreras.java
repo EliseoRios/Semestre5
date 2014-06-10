@@ -233,7 +233,7 @@ public class Carreras extends JFrame
 						}else if(distanciaLadron>=limite && libre==true)
 						{
 							libre = false;
-							System.out.println("FELICIDADES SERAS LIBRE");
+							System.out.println("FELICIDADES ERES LIBRE");
 							//JOptionPane.showMessageDialog(null, "FELICIDADES ERES LIBRE");
 							poli.stop();
 							ratero.stop();
